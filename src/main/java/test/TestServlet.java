@@ -1,5 +1,7 @@
 package test;
 
+import utilidades.*;
+import clases.*;
 import jakarta.servlet.ServletException;
 
 import jakarta.servlet.annotation.WebServlet;
@@ -35,7 +37,8 @@ public class TestServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-        	out.println("<h1>Test acceso de datos by LMT</h1><br>");
+        	out.println("<h1>Test acceso de datos</h1><br>");
+        	out.println("<p>Sí el servidor no actualiza, tiens que hacer: build project - server stop - server clean - server publish - server start</p>");
         	// login, obtener KEY
         	String loginRL = "http://localhost:9090/CentroEducativo/login";
         	String loginJSON = "{\"dni\": \"111111111\", \"password\": \"654321\"}";
@@ -62,7 +65,12 @@ public class TestServlet extends HttpServlet {
         			.build();
         	HttpResponse<String> responseGetAlumnos = client.send(request_GetAlumnos, HttpResponse.BodyHandlers.ofString());
         	String responseBodyAlumnos = responseGetAlumnos.body();
-        	out.println(responseBodyAlumnos + "<br>");
+        	
+        	Persona[] alumnos = JsonAObjetoJava.parsePersonasFromJson(responseBodyAlumnos);
+        	for (Persona persona : alumnos) {
+        		out.println("DNI: " + persona.getDni() + ", Nombre: " + persona.getNombre() + ", Apellidos: " + persona.getApellidos() + "<br>");
+            }
+        	//out.println(responseBodyAlumnos + "<br>");
         	String url_GetProfesores = "http://localhost:9090/CentroEducativo/profesores?key=" + key;
         	out.println("URL enviado: " + url_GetProfesores + "<br>");
         	HttpClient clientGetProfesores = HttpClient.newHttpClient();
@@ -71,8 +79,12 @@ public class TestServlet extends HttpServlet {
         			.header("Cookie", sessionCookie)
         			.build();
         	HttpResponse<String> responseGetProfesores = client.send(request_GetProfesores, HttpResponse.BodyHandlers.ofString());
-        	String responseBodyProfesores = responseGetAlumnos.body();
-        	out.println(responseBodyProfesores);
+        	String responseBodyProfesores = responseGetProfesores.body();
+        	/*out.println(responseBodyProfesores);*/
+        	Persona[] profesores = JsonAObjetoJava.parsePersonasFromJson(responseBodyProfesores);
+        	for (Persona persona : profesores) {
+        		out.println("DNI: " + persona.getDni() + ", Nombre: " + persona.getNombre() + ", Apellidos: " + persona.getApellidos() + "<br>");
+            }
         	
         } catch (InterruptedException e) {
 			// TODO Auto-generated catch block
