@@ -75,7 +75,7 @@ public class TestServlet extends HttpServlet {
         	out.println("URL enviado: " + url_GetProfesores + "<br>");
         	HttpClient clientGetProfesores = HttpClient.newHttpClient();
         	HttpRequest request_GetProfesores = HttpRequest.newBuilder()
-        			.uri(URI.create(url_GetAlumnos))
+        			.uri(URI.create(url_GetProfesores))
         			.header("Cookie", sessionCookie)
         			.build();
         	HttpResponse<String> responseGetProfesores = client.send(request_GetProfesores, HttpResponse.BodyHandlers.ofString());
