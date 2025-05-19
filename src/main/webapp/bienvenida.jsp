@@ -20,10 +20,10 @@
     <div class="row m-5">
         <div class="col-md-8">
         	<h2>Si eres alumn@...</h2>
-            <p>Podrás <a href="#">consultar</a> tus calificaciones... Debes contar con tus datos identificativos para acceder.</p>
+            <p>Podrás <a href="http://localhost:8080/Trabajo/login.html">consultar</a> tus calificaciones... Debes contar con tus datos identificativos para acceder.</p>
 
             <h2 class="mt-4">Si eres profesor@...</h2>
-            <p>Podrás <a href="#">consultar</a> o <a href="#">modificar</a> las calificaciones en tus asignaturas... Debes contar con tus datos identificativos para acceder.</p>
+            <p>Podrás <a href="http://localhost:8080/Trabajo/login.html">consultar</a> o <a href="#">modificar</a> las calificaciones en tus asignaturas... Debes contar con tus datos identificativos para acceder.</p>
        
         </div>
         <div class="col-md-4">

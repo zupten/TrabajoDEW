@@ -73,7 +73,10 @@ public class TestServlet extends HttpServlet {
         	Alumno[] alumnos = service.getAlumnos();
         	out.println("<hr><h2>Alumnos:</h2><br>");
         	for (Alumno persona : alumnos) {
-        		out.println("DNI: " + persona.getDni() + ", Nombre: " + persona.getNombre() + ", Apellidos: " + persona.getApellidos() + "<br>");
+        		out.println("DNI: " + persona.getDni() + 
+        				", Nombre: " + persona.getNombre() + 
+        				", Apellidos: " + persona.getApellidos() + 
+        				", Contraseña: " + persona.getPassword() + "<br>");
             }
         	//out.println(responseBodyAlumnos + "<br>");
         	/*String url_GetProfesores = "http://localhost:9090/CentroEducativo/profesores?key=" + key;
@@ -90,8 +93,11 @@ public class TestServlet extends HttpServlet {
         	Profesor[] profesores = service.getProfesores();
         	out.println("<hr><h2>Profesores:</h2><br>");
         	for (Profesor persona : profesores) {
-        		out.println("DNI: " + persona.getDni() + ", Nombre: " + persona.getNombre() + ", Apellidos: " + persona.getApellidos() + "<br>");
-            }
+        		out.println("DNI: " + persona.getDni() + 
+        				", Nombre: " + persona.getNombre() + 
+        				", Apellidos: " + persona.getApellidos() + 
+        				", Contraseña: " + persona.getPassword() + "<br>");
+    		}
         	
         } catch (InterruptedException e) {
 			// TODO Auto-generated catch block
