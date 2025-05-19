@@ -2,12 +2,22 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="/includes/header.jsp" %>
-<div class="container mt-5">
-    <div class="hero text-center shadow">
-        <h1>Bienvenid@ a <em>Notas OnLine</em></h1>
-        <h4 class="mt-3">Una aplicación que cuesta más de lo que parece para conseguir menos de lo que creías... <strong>¿¡Qué más se puede pedir!?</strong></h4>
-    </div>
-    <div class="row">
+
+<title>Página bienvenida</title>
+</head>
+<body>
+	<div class="container mt-5 shadow text-white m-5 p-5" style="background: url('imgs/kato.jpeg') center; background-size: cover;">
+	        <h1>Bienvenid@ a <em>Notas OnLine</em></h1>
+	        <h4 class="mt-3">
+	            Una aplicación que cuesta más de lo que parece para conseguir menos de lo que creías... 
+	            <strong>¿¡Qué más se puede pedir!?</strong>
+	        </h4>
+	        <br>
+	        <br>
+	        <br>
+	</div>
+
+    <div class="row m-5">
         <div class="col-md-8">
         	<h2>Si eres alumn@...</h2>
             <p>Podrás <a href="#">consultar</a> tus calificaciones... Debes contar con tus datos identificativos para acceder.</p>
