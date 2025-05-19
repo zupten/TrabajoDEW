@@ -1,14 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Bienvenida</title>
-</head>
-<body>
-	<h1>Pagina Bienvenida</h1>
-	<h2>Si eres alumno...</h2>
-	<h2>Si eres profe...</h2>
-</body>
-</html>
+
+<%@ include file="/includes/header.jsp" %>
+<div class="container mt-5">
+    <div class="hero text-center shadow">
+        <h1>Bienvenid@ a <em>Notas OnLine</em></h1>
+        <h4 class="mt-3">Una aplicación que cuesta más de lo que parece para conseguir menos de lo que creías... <strong>¿¡Qué más se puede pedir!?</strong></h4>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+        	<h2>Si eres alumn@...</h2>
+            <p>Podrás <a href="#">consultar</a> tus calificaciones... Debes contar con tus datos identificativos para acceder.</p>
+
+            <h2 class="mt-4">Si eres profesor@...</h2>
+            <p>Podrás <a href="#">consultar</a> o <a href="#">modificar</a> las calificaciones en tus asignaturas... Debes contar con tus datos identificativos para acceder.</p>
+       
+        </div>
+        <div class="col-md-4">
+        	 <div class="p-3 bg-white border rounded shadow-sm">
+                <h5><strong>Grupo G14_labo_Miercoles_??</strong></h5>
+                <ol class="mt-2">
+                    <li>López Izquierdo, Marcos</li>
+                    <li>Monzó Sanchis, Toni</li>
+                    <li>Navarro Chiner, Hugo</li>
+                    <li>Notario Stot, Alejandro</li>
+                    <li>Teng, Zupan</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<%@ include file="/includes/footer.jsp" %>
