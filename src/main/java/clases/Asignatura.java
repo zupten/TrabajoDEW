@@ -12,4 +12,8 @@ public class Asignatura {
 		this.creditos = creditos;
 		this.curso = curso;
 	}
+	
+    public String getAcronimo() {
+        return acronimo;
+    }
 }
