@@ -28,7 +28,7 @@
         </div>
         <div class="col-md-4">
         	 <div class="p-3 bg-white border rounded shadow-sm">
-                <h5><strong>Grupo G14_labo_Miercoles_1</strong></h5>
+                <h5><strong>Grupo G14_labo_Miercoles_3TI12</strong></h5>
                 <ol class="mt-2">
                     <li>López Izquierdo, Marcos</li>
                     <li>Monzó Sanchis, Toni</li>
