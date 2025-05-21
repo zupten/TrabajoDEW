@@ -46,6 +46,11 @@
     </auth-constraint>
   </security-constraint>
    
+  <context-param>
+	<param-name>logfile</param-name>
+	<param-value>/tmp/logs/accesos.log</param-value>
+  </context-param>
+   
    <filter>
    	<filter-name>FiltroBasico</filter-name>
    	<filter-class>filtro.FiltroBasico</filter-class>

@@ -12,17 +12,22 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpFilter;
 import jakarta.servlet.http.HttpServletRequest;
 
+import java.io.FileWriter;
 import java.io.IOException;
-
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDateTime;
 /**
  * Servlet Filter implementation class FiltroBasico
  */
-@WebFilter("/FiltroBasico")
+@WebFilter("/*")
 public class FiltroBasico extends HttpFilter implements Filter {
        
     /**
      * @see HttpFilter#HttpFilter()
      */
+	private String logPath;
+	 
     public FiltroBasico() {
         super();
         // TODO Auto-generated constructor stub
@@ -42,13 +47,31 @@ public class FiltroBasico extends HttpFilter implements Filter {
 		// TODO Auto-generated method stub
 		// place your code here
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
+		String usuario = httpRequest.getRemoteUser();
+		if (usuario == null) usuario = "ANONIMO";
 		
-		ServletContext sc = httpRequest.getServletContext();
+		String lineaLog = String.format(
+                "%s %s %s %s %s",
+                LocalDateTime.now(),
+                usuario,
+                httpRequest.getRemoteAddr(),
+                httpRequest.getRequestURI(),
+                httpRequest.getMethod()
+		);
+		try (PrintWriter out = new PrintWriter(new FileWriter(logPath, true))) {
+            out.println(lineaLog);
+        } catch (IOException e) {
+        	httpRequest.getServletContext().log("Error al escribir en el log: " + e.getMessage());
+        }
 
-		sc.log("******************paso filtro  |antes");
+        chain.doFilter(request, response);
+        
+		//ServletContext sc = httpRequest.getServletContext();
+
+		//sc.log("******************paso filtro  |antes");
 		// pass the request along the filter chain
-		chain.doFilter(request, response);
-		sc.log("******************paso filtro  |después");
+		//chain.doFilter(request, response);
+		//sc.log("******************paso filtro  |después");
 	}
 
 	/**
@@ -56,6 +79,11 @@ public class FiltroBasico extends HttpFilter implements Filter {
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
 		// TODO Auto-generated method stub
-	}
+		ServletContext context = fConfig.getServletContext();
+        String relativePath = context.getInitParameter("logfile");
+        if (relativePath == null || relativePath.isEmpty()) {
+            throw new ServletException("Parámetro 'logfile' no definido en web.xml");
+        }
+        this.logPath = relativePath;	}
 
 }
