@@ -4,11 +4,11 @@ import java.io.IOException;
 import java.util.List;
 
 import clases.Asignatura;
-import clases.CentroEducativoAPI;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
+import service.CentroEducativoAPI;
 
 @WebServlet("/alumno/asignaturas")
 public class AsignaturasAlumnoServlet extends HttpServlet {
