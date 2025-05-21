@@ -46,5 +46,13 @@
     </auth-constraint>
   </security-constraint>
    
-  
+   <filter>
+   	<filter-name>FiltroBasico</filter-name>
+   	<filter-class>filtro.FiltroBasico</filter-class>
+   </filter>
+  <filter-mapping>
+  	<filter-name>FiltroBasico</filter-name>
+  	<url-pattern>/*</url-pattern>
+  	<dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
 </web-app>
