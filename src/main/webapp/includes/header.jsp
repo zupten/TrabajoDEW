@@ -6,3 +6,5 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="/Trabajo/b5css/bootstrap.min.css" rel="stylesheet">
+<base href="http://localhost:8080/Trabajo/">
+

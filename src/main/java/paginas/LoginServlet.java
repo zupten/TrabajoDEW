@@ -51,7 +51,8 @@ public class LoginServlet extends HttpServlet {
         			request.setAttribute("rol", "alumno");
         			request.setAttribute("nombre", p.getNombre());
         	        request.setAttribute("apellidos", p.getApellidos());
-        			getServletContext().getRequestDispatcher("/identificacion.jsp").forward(request, response);
+        			response.sendRedirect("/Trabajo/auth/identificacion");
+        			//getServletContext().getRequestDispatcher("/identificacion.jsp").forward(request, response);
         		}
         	}
         	Profesor[] profesores = service.getProfesores();
@@ -60,7 +61,8 @@ public class LoginServlet extends HttpServlet {
         			request.setAttribute("rol", "profesor");
         			request.setAttribute("nombre", p.getNombre());
         	        request.setAttribute("apellidos", p.getApellidos());
-        			getServletContext().getRequestDispatcher("/identificacion.jsp").forward(request, response);
+        			response.sendRedirect("/Trabajo/auth/identificacion");
+        			//getServletContext().getRequestDispatcher("/identificacion.jsp").forward(request, response);
         		}
         	}
 	        response.setContentType("text/html;charset=UTF-8");
