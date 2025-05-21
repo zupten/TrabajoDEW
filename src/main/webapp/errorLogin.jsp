@@ -7,7 +7,7 @@
       <div class="col-md-5">
         <div class="card shadow-sm">
           <div class="card-body">
-            <h3 class="card-title text-center mb-4">Algo a ido mal</h3>
+            <h3 class="card-title text-center mb-4">Algo ha ido mal</h3>
 			<a href="/Trabajo">Volver a página principal</a>
           </div>
         </div>
