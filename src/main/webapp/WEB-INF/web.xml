@@ -14,7 +14,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Identificacion</servlet-name>
-    <url-pattern>/auth/identificacion</url-pattern>
+    <url-pattern>/identificacion</url-pattern>
   </servlet-mapping>
   
   <security-role>
@@ -36,7 +36,8 @@
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>PaginaAutorizada</web-resource-name>
-      <url-pattern>/auth/*</url-pattern>
+      <url-pattern>/identificacion</url-pattern>
+      <url-pattern>/asignaturasAlumno.jsp</url-pattern>
     </web-resource-collection>
     <auth-constraint>
       <role-name>alumno</role-name>

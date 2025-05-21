@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 /**
@@ -26,7 +28,24 @@ public class Identificacion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		getServletContext().getRequestDispatcher("/identificacion.jsp").forward(request, response);
+		
+		HttpSession sesion = request.getSession();
+		
+		String action = request.getParameter("action");
+		String usuario = request.getRemoteUser();
+		
+		if(action != null && action.equals("cierra")) { //si se da la orden de cerrar sesión...
+			sesion.invalidate();
+			response.sendRedirect("/Trabajo");
+			return;
+		}
+		
+		else {
+			request.setAttribute("idSesion", sesion.getId());
+			request.setAttribute("usuario", usuario);
+			
+			this.getServletContext().getRequestDispatcher("/identificacion.jsp").forward(request, response);
+		}
 	}
 
 	/**
