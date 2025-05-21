@@ -52,15 +52,15 @@
   <user password="dew2425" roles="manager-script,admin" username="dew"/>
   <role rolename="alumno" />
   <role rolename="profesor" />
-  <user username="12345678W" password="123" roles="alumno" />
-  <user username="23456387R" password="123" roles="alumno" />
-  <user username="34567891F" password="123" roles="alumno" />
-  <user username="93847525G" password="123" roles="alumno" />
-  <user username="37264096W" password="123" roles="alumno" />
+  <user username="12345678W" password="123456" roles="alumno" />
+  <user username="23456387R" password="123456" roles="alumno" />
+  <user username="34567891F" password="123456" roles="alumno" />
+  <user username="93847525G" password="123456" roles="alumno" />
+  <user username="37264096W" password="123456" roles="alumno" />
   
-  <user username="23456733H" password="123" roles="profesor" />
-  <user username="10293756L" password="123" roles="profesor" />
-  <user username="06374291A" password="123" roles="profesor" />
-  <user username="65748923M" password="123" roles="profesor" />
+  <user username="23456733H" password="123456" roles="profesor" />
+  <user username="10293756L" password="123456" roles="profesor" />
+  <user username="06374291A" password="123456" roles="profesor" />
+  <user username="65748923M" password="123456" roles="profesor" />
   
 </tomcat-users>

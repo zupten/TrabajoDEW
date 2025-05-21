@@ -32,7 +32,22 @@ public class CentroEducativoService {
         key = response.body();
         sessionCookie = response.headers().firstValue("Set-Cookie").orElse("");
     }
-    
+
+    public void init(String dni, String password) throws IOException, InterruptedException {
+        String loginUrl = URL + "/login";
+        String loginJSON = "{\"dni\": \"" + dni + "\", \"password\": \"" + password + "\"}";
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(loginUrl))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(loginJSON))
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        key = response.body();
+        sessionCookie = response.headers().firstValue("Set-Cookie").orElse("");
+    }
     public Alumno[] getAlumnos() throws IOException, InterruptedException {
         String url = URL + "/alumnos?key=" + key;
 
