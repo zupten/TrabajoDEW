@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import clases.Alumno;
+import clases.Asignatura;
+import clases.AsignaturaNotaAlumno;
 import clases.Persona;
 import clases.Profesor;
 
@@ -43,6 +45,17 @@ public class JsonAObjetoJavaService {
         } catch (Exception e) {
             e.printStackTrace();
             return new Profesor[0];
+        }
+    }
+    public static AsignaturaNotaAlumno[] parseAsignaturaNotaAlumnoFromJson(String json) {
+        try {
+            Gson gson = new Gson();
+            Type asignaturaListType = new TypeToken<List<AsignaturaNotaAlumno>>() {}.getType();
+            List<AsignaturaNotaAlumno> asignaturaList = gson.fromJson(json, asignaturaListType);
+            return asignaturaList.toArray(new AsignaturaNotaAlumno[0]);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new AsignaturaNotaAlumno[0];
         }
     }
 }

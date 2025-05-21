@@ -44,6 +44,9 @@ public class Identificacion extends HttpServlet {
 			request.setAttribute("idSesion", sesion.getId());
 			request.setAttribute("usuario", usuario);
 			
+			String username = request.getRemoteUser();
+			
+			request.setAttribute("nombre", username);
 			this.getServletContext().getRequestDispatcher("/identificacion.jsp").forward(request, response);
 		}
 	}

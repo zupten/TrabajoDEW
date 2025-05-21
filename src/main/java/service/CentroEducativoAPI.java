@@ -3,6 +3,8 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
+import clases.Asignatura;
+
 public class CentroEducativoAPI {
 
     private static final String API_URL = "http://localhost:9090/CentroEducativo";

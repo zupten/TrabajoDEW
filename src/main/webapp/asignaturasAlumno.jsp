@@ -1,3 +1,5 @@
+<%@page import="clases.AsignaturaNotaAlumno"%>
+<%@page import="paginas.AsignaturasAlumnoServlet"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -10,13 +12,23 @@
 <div class="container mt-5">
     <h2>Asignaturas en las que estás matriculado</h2>
     <ul class="list-group mt-4">
-        <c:forEach var="asignatura" items="${asignaturas}">
+    	
+        <!--  c:forEach var="asignatura" items="${asignaturas}">
             <li class="list-group-item">
                 <a href="detalleAsignatura?acronimo=${asignatura.acronimo}">
                     ${asignatura.nombre} (${asignatura.acronimo})
                 </a>
             </li>
-        </c:forEach>
+        </c:forEach>-->
+        <!--<p>${asignaturas[0].getAsignatura()}</p>-->
+        <%
+        	AsignaturaNotaAlumno[] asignaturas = (AsignaturaNotaAlumno[]) request.getAttribute("asignaturas");
+        	for (int i = 0; i<asignaturas.length; i++) {
+        %>
+        	<p>Asignatura: <%= asignaturas[i].getAsignatura()%>; Nota:  <%= asignaturas[i].getNota()%></p>
+        <%
+        	}
+        %>
     </ul>
 </div>
 </body>

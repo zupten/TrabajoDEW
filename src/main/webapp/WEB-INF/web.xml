@@ -38,6 +38,7 @@
       <web-resource-name>PaginaAutorizada</web-resource-name>
       <url-pattern>/identificacion</url-pattern>
       <url-pattern>/asignaturasAlumno.jsp</url-pattern>
+      <url-pattern>/alumno/*</url-pattern>
     </web-resource-collection>
     <auth-constraint>
       <role-name>alumno</role-name>

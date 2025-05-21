@@ -7,6 +7,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 import clases.Alumno;
+import clases.AsignaturaNotaAlumno;
 import clases.Profesor;
 
 public class CentroEducativoService {
@@ -60,5 +61,22 @@ public class CentroEducativoService {
         String responseBody = response.body();
         Profesor[] profesores = JsonAObjetoJavaService.parseProfesoresFromJson(responseBody);
         return profesores;
+    }
+    
+    public AsignaturaNotaAlumno[] getAsginaturasPorAlumno(String DNI) throws IOException, InterruptedException{
+    	
+    	String url = URL + "/alumnos/"+ DNI + "/asignaturas?key=" + key;
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .header("Cookie", sessionCookie)
+                .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        String responseBody = response.body();
+        
+        AsignaturaNotaAlumno[] asignaturas = JsonAObjetoJavaService.parseAsignaturaNotaAlumnoFromJson(responseBody);
+		return asignaturas;
+    	
     }
 }
