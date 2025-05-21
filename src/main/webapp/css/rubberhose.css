@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+
+
+:root {
+  --color-fondo: #F3EAC2;
+  --color-texto: #4D3C2C;
+  --color-boton: #FCAB20;
+  --color-botonAlPasarCursor: #F56438;
+  --color-borde: #0D8F91;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: 'Lexend', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.boton-retro {
+  background-color: var(--color-boton);
+  border: 2px solid var(--color-borde);
+  color: white;
+  font-weight: bold;
+  border-radius: 30px;
+  padding: 0.7rem 2rem;
+  margin: 0.5rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.boton-retro:hover {
+  background-color: var(--color-botonAlPasarCursor);
+  color: var(--color-texto);
+  border-color: var(--color-texto);
+  transform: scale(1.05);
+}
+
+footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  opacity: 0.6;
+  font-style: italic;
+}
+

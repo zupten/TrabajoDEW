@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="/includes/header.jsp" %>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <title>Página bienvenida</title>
 </head>
@@ -33,11 +34,13 @@
                     <li>López Izquierdo, Marcos</li>
                     <li>Monzó Sanchis, Toni</li>
                     <li>Navarro Chiner, Hugo</li>
-                    <li>Notario Stot, Alejandro</li>
+                    <li>Notario Soto, Alejandro</li>
                     <li>Teng, Zupan</li>
                 </ol>
             </div>
         </div>
     </div>
 </div>
+
 <%@ include file="/includes/footer.jsp" %>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
