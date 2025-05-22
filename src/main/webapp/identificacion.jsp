@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="container mt-5 shadow m-5 p-5">
-	<h2 class="">Bienvenido, ${rol} ${nombre} ${apellidos}</h2>
+	<h2 class="">Bienvenido, ${rol} ${nombre} ${apellidos}</h2><br>
 	<%
 		if (request.isUserInRole("alumno")) {
 	%>

@@ -1,20 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/includes/header.jsp" %>
-<body>
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-5">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <h3 class="card-title text-center mb-4">Algo ha ido mal</h3>
-			<a href="/Trabajo">Volver a página principal</a>
-          </div>
-        </div>
-        <p class="text-center text-muted mt-3" style="font-size: 0.9em;">
-          Trabajo DEW 2024–25
-        </p>
-      </div>
+
+<div class="container mt-5">
+  <div class="bienvenida-caja sombra-verde text-center">
+    <h2 class="mb-4">Error de autenticación</h2>
+
+    <p>El nombre de usuario o la contraseña introducidos no son correctos.</p>
+    <p>Por favor, vuelve a intentarlo.</p>
+
+    <div class="mt-4">
+      <a href="/Trabajo" class="boton-retro">Volver a la página principal</a>
     </div>
   </div>
+</div>
+
 <%@ include file="/includes/footer.jsp" %>
