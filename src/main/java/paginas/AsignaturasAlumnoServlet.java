@@ -12,7 +12,6 @@ import jakarta.servlet.http.*;
 import service.CentroEducativoAPI;
 import service.CentroEducativoService;
 
-@WebServlet("/alumno/asignaturas")
 public class AsignaturasAlumnoServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

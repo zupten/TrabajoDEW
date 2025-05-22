@@ -2,8 +2,6 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="/includes/header.jsp" %>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/rubberhose.css">
 
 <title>Página bienvenida</title>
 </head>
