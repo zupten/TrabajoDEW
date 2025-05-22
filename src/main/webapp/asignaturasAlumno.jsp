@@ -17,6 +17,9 @@
         	}
         %>
     </ul>
+    
+    <a href="/Trabajo/certificado" class="btn btn-primary mt-3">Ver certificado de notas</a>
+    
 </div>
 </body>
 <%@ include file="/includes/footer.jsp" %>
