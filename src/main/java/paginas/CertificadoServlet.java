@@ -12,6 +12,7 @@ import service.CentroEducativoService;
 import java.io.IOException;
 
 import clases.AsignaturaNotaAlumno;
+import clases.Alumno;
 
 /**
  * Servlet implementation class CertificadoServlet
@@ -35,29 +36,42 @@ public class CertificadoServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		HttpSession session = request.getSession();
-        String dni = (String) session.getAttribute("dni");
-        String nombre = (String) session.getAttribute("nombre");
-        String apellidos = (String) session.getAttribute("apellidos");
+        String dni = request.getRemoteUser();
         String pass = (String) session.getAttribute("pass");
         CentroEducativoService service = (CentroEducativoService) session.getAttribute("service");
-        
+     
+             
         try {
         	if (service == null) {
     			service = new CentroEducativoService();
-    			session.setAttribute("service", service);
-    			if (pass == null) pass = "123456";
+    			if (pass == null) pass = "123456";    			
     			service.init(dni, pass);
+    			session.setAttribute("service", service);
     		}
-        	
-			AsignaturaNotaAlumno[] asignaturas = service.getAsginaturasPorAlumno(dni);
+        		
 			
+			AsignaturaNotaAlumno[] asignaturas = service.getAsginaturasPorAlumno(dni);
 			request.setAttribute("asignaturas", asignaturas);
+
+			Alumno[] alumnos = service.getAlumnos();
+			String nombre = "Desconocido";
+			String apellidos = "Desconocido";
+
+			for (Alumno a : alumnos) {
+			    if (a.getDni().equals(dni)) {
+			        nombre = a.getNombre();
+			        apellidos = a.getApellidos();
+			        break;
+			    }
+			}
 			request.setAttribute("nombre", nombre);
 			request.setAttribute("apellidos", apellidos);
 			request.setAttribute("dni", dni);
+
 						
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/certificado.jsp");
 			dispatcher.forward(request, response);
+			
 		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();
 		}

@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="clases.AsignaturaNotaAlumno" %>
+<%@page import="paginas.CertificadoServlet"%>
+
 <%@ include file="/includes/header.jsp" %>
 
 <%
-    String dni = (String) session.getAttribute("dni");
-    String nombre = (String) session.getAttribute("nombre");
-    String apellidos = (String) session.getAttribute("apellidos");
+    String dni = (String) request.getAttribute("dni");
+    String nombre = (String) request.getAttribute("nombre");
+    String apellidos = (String) request.getAttribute("apellidos");
     AsignaturaNotaAlumno[] asignaturas = (AsignaturaNotaAlumno[]) request.getAttribute("asignaturas");
 %>
 
@@ -45,7 +47,7 @@
     </div>
 </div>  
 <div>
-        <p> El alumno/a ha estado matriculado/a en las siguientes asignaturas y ha obtenido las calificaciones que se indican:</p>
+        <p> El alumno ha estado matriculado en las siguientes asignaturas y ha obtenido las calificaciones que se indican:</p>
         <ul class="list-group mb-4">
         <%
             if (asignaturas != null && asignaturas.length > 0) {
