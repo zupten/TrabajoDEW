@@ -17,6 +17,15 @@
     <url-pattern>/identificacion</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>AsignaturasAlumno</servlet-name>
+    <servlet-class>paginas.AsignaturasAlumnoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AsignaturasAlumno</servlet-name>
+    <url-pattern>/alumno/asignaturas</url-pattern>
+  </servlet-mapping>
+  
   <security-role>
     <role-name>alumno</role-name>
   </security-role>
@@ -37,12 +46,21 @@
     <web-resource-collection>
       <web-resource-name>PaginaAutorizada</web-resource-name>
       <url-pattern>/identificacion</url-pattern>
-      <url-pattern>/asignaturasAlumno.jsp</url-pattern>
-      <url-pattern>/alumno/*</url-pattern>
     </web-resource-collection>
     <auth-constraint>
       <role-name>alumno</role-name>
       <role-name>profesor</role-name>
+    </auth-constraint>
+  </security-constraint>
+   
+  
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>PaginaAlumnos</web-resource-name>
+      <url-pattern>/alumno/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>alumno</role-name>
     </auth-constraint>
   </security-constraint>
    

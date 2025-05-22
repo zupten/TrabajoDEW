@@ -12,6 +12,7 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpFilter;
 import jakarta.servlet.http.HttpServletRequest;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.IOException;
@@ -46,6 +47,17 @@ public class FiltroBasico extends HttpFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
+		
+		String logPath = "/tmp/logs/accesos.log";
+
+		File logFile = new File(logPath);
+		File parentDir = logFile.getParentFile();
+
+		if (!parentDir.exists()) {
+		    parentDir.mkdirs();
+		}
+
+		
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		String usuario = httpRequest.getRemoteUser();
 		if (usuario == null) usuario = "ANONIMO";
