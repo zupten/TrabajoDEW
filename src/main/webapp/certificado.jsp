@@ -25,7 +25,7 @@
 	<div class="card mb-4 p-4">
         <div class="row">
             <div class="col-md-3">
-                <img src="" alt="Foto del alumno">
+                <img src="imgs/fotos/<%= dni %>.jpeg" alt="Foto del alumno">
             </div>
             <div class="col-md-9">
                 <h4><%= apellidos %>, <%= nombre %> (<%= dni %>)</h4>
