@@ -77,7 +77,7 @@ for matricula in "${matriculas[@]}"; do
     -X POST "http://localhost:9090/CentroEducativo/asignaturas/$asignatura/alumnos?key=$TOKEN" \
     -H "Content-Type: application/json" \
     -d "{\"dni\":\"$dni\"}")
-  echo "Alumno $dni matriculado en $asignatura (código $response)"
+  echo "Alumno $dni matriculado en $asignatura código $response"
 done
 
 echo
@@ -93,9 +93,9 @@ calificaciones=(
 for calificacion in "${calificaciones[@]}"; do
   IFS=',' read -r dni asignatura nota <<< "$calificacion"
   response=$(curl -s -o /dev/null -w "%{http_code}" -b sesion_admin_log.txt \
-    -X PUT "http://localhost:9090/CentroEducativo/alumnos/$dni/asignaturas/$asignatura" \
+    -X PUT "http://localhost:9090/CentroEducativo/alumnos/$dni/asignaturas/$asignatura?key=$TOKEN" \
     -H "Content-Type: application/json" \
-    -d "{\"nota\": \"$nota\"}")
+    -d "$nota")
   echo "Nota $nota asignada a $dni en $asignatura código $response"
 done
 
