@@ -12,13 +12,7 @@
     AsignaturaNotaAlumno[] asignaturas = (AsignaturaNotaAlumno[]) request.getAttribute("asignaturas");
 %>
 
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
 <title>Certificado de Notas</title>
-<link href="b5css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container mt-5">
@@ -67,7 +61,5 @@
         %>
         </ul>
 </div>
-</body>
-</html>
 
 <%@ include file="/includes/footer.jsp" %>
