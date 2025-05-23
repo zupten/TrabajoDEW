@@ -10,12 +10,12 @@
 	<%
 		if (request.isUserInRole("alumno")) {
 	%>
-			<p> <a href="http://localhost:8080/Trabajo/alumno/asignaturas">Lista Asignaturas</a></p>
+			<p> <a href="/Trabajo/alumno/asignaturas">Lista Asignaturas</a></p>
 	<%
 		} else if (request.isUserInRole("profesor")) {
 	%>
 			<p>Eres profesor</p>
-			<p>Prueba acceder <a href="http://localhost:8080/Trabajo/alumno/asignaturas">Lista Asignaturas de alumno</a> (lanzará acceso denegado)</p>
+			<p>Prueba acceder <a href="/Trabajo/alumno/asignaturas">Lista Asignaturas de alumno</a> (lanzará acceso denegado)</p>
 	<%
 		}
 	%>

@@ -9,7 +9,6 @@ import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
-import service.CentroEducativoAPI;
 import service.CentroEducativoService;
 
 public class AsignaturasAlumnoServlet extends HttpServlet {

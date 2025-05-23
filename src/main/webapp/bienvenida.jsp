@@ -36,8 +36,12 @@
             </p>
 
             <div class="d-flex justify-content-start gap-3 mt-4">
-                <a href="/Trabajo/asignaturas" class="boton-retro">Ver asignaturas</a>
-                <a href="/Trabajo/logout" class="boton-retro">Cerrar sesión</a>
+                <a href="/Trabajo/alumno/asignaturas" class="boton-retro">Ver asignaturas</a>
+                <%
+                	if(request.getRemoteUser() != null) {
+                %>
+                		<a href="/Trabajo/identificacion?action=cierra" class="boton-retro">Cerrar sesión</a>
+                <% } %>
             </div>
         </div>
 
