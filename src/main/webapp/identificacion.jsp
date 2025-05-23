@@ -10,7 +10,7 @@
 	<%
 		if (request.isUserInRole("alumno")) {
 	%>
-			<p> <a href="http://localhost:8080/Trabajo/alumno/asignaturas">Lista Asignaturas</a> .</p>
+			<p> <a href="http://localhost:8080/Trabajo/alumno/asignaturas">Lista Asignaturas</a></p>
 	<%
 		} else if (request.isUserInRole("profesor")) {
 	%>

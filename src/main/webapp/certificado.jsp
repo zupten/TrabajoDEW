@@ -40,6 +40,13 @@
                     }
                 %>]
                 </p>
+                <p class="mt-3">
+				    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+				    Integer quis interdum tellus. Etiam eget diam lacus. 
+				    Sed at sem rutrum, pretium metus non, tristique enim. 
+				    Praesent nec placerat elit, vitae euismod ante. 
+				 </p>
+
             </div>
         </div>
     </div>
@@ -51,10 +58,9 @@
             if (asignaturas != null && asignaturas.length > 0) {
                 for (int i = 0; i < asignaturas.length; i++) {
         %>
-            <li class="list-group-item d-flex justify-content-between">
-                <span><%= asignaturas[i].getAsignatura() %></span>
-                <strong><%= asignaturas[i].getNota() %></strong>
-            </li>
+            <li class="list-group-item">
+  				<%= asignaturas[i].getAsignatura() %> : <strong><%= asignaturas[i].getNota() %></strong>
+			</li>
         <%
                 }
             } else {
