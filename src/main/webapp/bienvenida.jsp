@@ -12,7 +12,7 @@
             <h1 style="color: var(--color-borde);">Bienvenid@ a <em>Notas OnLine</em></h1>
             <h4 class="mt-3">
                 Una aplicación que cuesta más de lo que parece para conseguir menos de lo que creías... 
-                <strong>¿¡Qué más se puede pedir!?</strong>
+                <strong>¿¡Qué más se puede pedir!? </strong>
             </h4>
         </div>
     </div>
