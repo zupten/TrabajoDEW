@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/includes/header.jsp" %>
-
+<title>Login</title>
+</head>
 <div class="container mt-5">
   <div class="bienvenida-caja sombra-verde" style="max-width: 500px;">
     <h2 class="mb-4">Iniciar sesión</h2>

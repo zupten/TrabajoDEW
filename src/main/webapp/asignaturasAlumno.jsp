@@ -4,6 +4,8 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="/includes/header.jsp" %>
+<title>Asignaturas Alumno</title>
+</head>
 <body>
 <div class="container mt-5">
     <h2>Asignaturas en las que estás matriculado</h2>
