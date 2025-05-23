@@ -18,9 +18,13 @@
 <div class="container mt-5">
 	<div class="card mb-4 p-4">
         <div class="row">
-            <div class="col-md-3">
-                <img src="imgs/fotos/<%= dni %>.jpeg" alt="Foto del alumno">
-            </div>
+            <%
+    		String dniFoto = (dni != null && !dni.isEmpty()) ? dni : "default_chico";
+			%>
+			<div class="col-md-3">
+    			<img src="imgs/fotos/<%= dniFoto %>.jpeg" alt="Foto del alumno" class="img-fluid rounded">
+    			<!-- <img src="imgs/fotos/default_chico.jpeg" alt="Foto del alumno" class="img-fluid rounded"> -->
+			</div>
             <div class="col-md-9">
                 <h4><%= apellidos %>, <%= nombre %> (<%= dni %>)</h4>
                 <p>
