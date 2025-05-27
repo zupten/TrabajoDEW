@@ -16,6 +16,7 @@
 	%>
 			<p>Eres profesor</p>
 			<p>Prueba acceder <a href="/Trabajo/alumno/asignaturas">Lista Asignaturas de alumno</a> (lanzará acceso denegado)</p>
+			<p> <a href="/Trabajo/profesor/asignaturas">Lista Asignaturas impartiendo</a></p>
 	<%
 		}
 	%>

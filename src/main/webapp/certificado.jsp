@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="clases.AsignaturaNotaAlumno" %>
-<%@page import="paginas.CertificadoServlet"%>
+<%@page import="servlets.CertificadoServlet"%>
 
 <%@ include file="/includes/header.jsp" %>
 

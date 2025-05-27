@@ -14,48 +14,40 @@ import java.util.List;
 
 public class JsonAObjetoJavaService {
 
+	public static <T> T[] parseArrayFromJson(String json, Class<T> clazz) {
+        try {
+            Gson gson = new Gson();
+            Type listType = TypeToken.getParameterized(List.class, clazz).getType();
+            List<T> list = gson.fromJson(json, listType);
+            @SuppressWarnings("unchecked")
+            T[] array = (T[]) java.lang.reflect.Array.newInstance(clazz, list.size());
+            return list.toArray(array);
+        } catch (Exception e) {
+            e.printStackTrace();
+            @SuppressWarnings("unchecked")
+            T[] emptyArray = (T[]) java.lang.reflect.Array.newInstance(clazz, 0);
+            return emptyArray;
+        }
+    }
+
     public static Persona[] parsePersonasFromJson(String json) {
-        try {
-            Gson gson = new Gson();
-            Type personaListType = new TypeToken<List<Persona>>() {}.getType();
-            List<Persona> personaList = gson.fromJson(json, personaListType);
-            return personaList.toArray(new Persona[0]);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new Persona[0];
-        }
+        return parseArrayFromJson(json, Persona.class);
     }
+
     public static Alumno[] parseAlumnosFromJson(String json) {
-        try {
-            Gson gson = new Gson();
-            Type alumnoListType = new TypeToken<List<Alumno>>() {}.getType();
-            List<Alumno> alumnoList = gson.fromJson(json, alumnoListType);
-            return alumnoList.toArray(new Alumno[0]);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new Alumno[0];
-        }
+        return parseArrayFromJson(json, Alumno.class);
     }
+
     public static Profesor[] parseProfesoresFromJson(String json) {
-        try {
-            Gson gson = new Gson();
-            Type profesorListType = new TypeToken<List<Profesor>>() {}.getType();
-            List<Profesor> profesorList = gson.fromJson(json, profesorListType);
-            return profesorList.toArray(new Profesor[0]);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new Profesor[0];
-        }
+        return parseArrayFromJson(json, Profesor.class);
     }
+
     public static AsignaturaNotaAlumno[] parseAsignaturaNotaAlumnoFromJson(String json) {
-        try {
-            Gson gson = new Gson();
-            Type asignaturaListType = new TypeToken<List<AsignaturaNotaAlumno>>() {}.getType();
-            List<AsignaturaNotaAlumno> asignaturaList = gson.fromJson(json, asignaturaListType);
-            return asignaturaList.toArray(new AsignaturaNotaAlumno[0]);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new AsignaturaNotaAlumno[0];
-        }
+        return parseArrayFromJson(json, AsignaturaNotaAlumno.class);
     }
+
+    public static Asignatura[] parseAsignaturaFromJson(String json) {
+        return parseArrayFromJson(json, Asignatura.class);
+    }
+    
 }

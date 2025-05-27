@@ -7,6 +7,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 import clases.Alumno;
+import clases.Asignatura;
 import clases.AsignaturaNotaAlumno;
 import clases.Profesor;
 
@@ -93,5 +94,40 @@ public class CentroEducativoService {
         AsignaturaNotaAlumno[] asignaturas = JsonAObjetoJavaService.parseAsignaturaNotaAlumnoFromJson(responseBody);
 		return asignaturas;
     	
+    }
+    
+    //getAsignaturasDeProfesor
+    public Asignatura[] getAsignaturasDeProfesor(String DNI) throws IOException, InterruptedException{
+    	
+    	String url = URL + "/profesores/"+ DNI + "/asignaturas?key=" + key;
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .header("Cookie", sessionCookie)
+                .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        String responseBody = response.body();
+        
+        Asignatura[] asignaturas = JsonAObjetoJavaService.parseAsignaturaFromJson(responseBody);
+		return asignaturas;
+    	
+    }
+
+    
+    //getAlumnosDeAsignatura
+    public String getAlumnosDeAsignatura(String acronimo) throws IOException, InterruptedException{
+    	
+    	String url = URL + "/asignaturas/"+ acronimo + "/alumnos?key=" + key;
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .header("Cookie", sessionCookie)
+                .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        String responseBody = response.body();
+        
+        return responseBody;
     }
 }

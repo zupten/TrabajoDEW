@@ -1,9 +1,9 @@
 package clases;
 
 public class Asignatura {
-	String acronimo, cuatrimestre, nombre;
-	float creditos;
-	int curso;
+	private String acronimo, cuatrimestre, nombre;
+	private float creditos;
+	private int curso;
 	
 	public Asignatura(String acronimo, String cuatrimestre, String nombre, float creditos, int curso) {
 		this.acronimo = acronimo;
@@ -12,8 +12,24 @@ public class Asignatura {
 		this.creditos = creditos;
 		this.curso = curso;
 	}
-	
+
     public String getAcronimo() {
         return acronimo;
+    }
+
+    public String getCuatrimestre() {
+        return cuatrimestre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public float getCreditos() {
+        return creditos;
+    }
+
+    public int getCurso() {
+        return curso;
     }
 }

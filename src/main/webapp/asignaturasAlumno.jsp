@@ -1,5 +1,5 @@
 <%@page import="clases.AsignaturaNotaAlumno"%>
-<%@page import="paginas.AsignaturasAlumnoServlet"%>
+<%@page import="servlets.AsignaturasAlumnoServlet"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 

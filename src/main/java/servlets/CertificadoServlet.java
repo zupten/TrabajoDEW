@@ -1,4 +1,4 @@
- package paginas;
+ package servlets;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

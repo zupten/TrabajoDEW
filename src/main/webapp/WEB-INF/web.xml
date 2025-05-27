@@ -10,7 +10,7 @@
   
   <servlet>
     <servlet-name>Identificacion</servlet-name>
-    <servlet-class>paginas.Identificacion</servlet-class>
+    <servlet-class>servlets.Identificacion</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Identificacion</servlet-name>
@@ -19,11 +19,29 @@
   
   <servlet>
     <servlet-name>AsignaturasAlumno</servlet-name>
-    <servlet-class>paginas.AsignaturasAlumnoServlet</servlet-class>
+    <servlet-class>servlets.AsignaturasAlumnoServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AsignaturasAlumno</servlet-name>
     <url-pattern>/alumno/asignaturas</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>AsignaturasProfesor</servlet-name>
+    <servlet-class>servlets.AsignaturasProfesorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AsignaturasProfesor</servlet-name>
+    <url-pattern>/profesor/asignaturas</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>AJAXProfesor</servlet-name>
+    <servlet-class>servlets.AJAXProfesor</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AJAXProfesor</servlet-name>
+    <url-pattern>/profesor/ajax</url-pattern>
   </servlet-mapping>
   
   <security-role>
@@ -61,6 +79,16 @@
     </web-resource-collection>
     <auth-constraint>
       <role-name>alumno</role-name>
+    </auth-constraint>
+  </security-constraint>
+  
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>PaginaProfesores</web-resource-name>
+      <url-pattern>/profesor/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>profesor</role-name>
     </auth-constraint>
   </security-constraint>
    
