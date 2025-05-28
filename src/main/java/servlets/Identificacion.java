@@ -30,15 +30,20 @@ public class Identificacion extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		HttpSession sesion = request.getSession();
-		
+		String login = request.getParameter("login");
 		String action = request.getParameter("action");
 		String usuario = request.getRemoteUser();
 		
 		if(action != null && action.equals("cierra")) { //si se da la orden de cerrar sesión...
-			sesion.invalidate();
+			if (sesion != null)
+				sesion.invalidate();
 			response.sendRedirect("/Trabajo");
 			return;
-		}
+		} else if (!request.isUserInRole(login)) {
+			sesion.invalidate();
+			request.setAttribute("mensaje", "no puedes entrar como "+ login);
+			this.getServletContext().getRequestDispatcher("/errorLogin.jsp").forward(request, response);
+		} 
 		
 		else {
 			request.setAttribute("idSesion", sesion.getId());

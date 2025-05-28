@@ -25,13 +25,13 @@
         <div class="col-md-8">
             <h2 style="color: var(--color-borde);">Si eres alumn@...</h2>
             <p>
-                Podrás <a href="/Trabajo/identificacion">consultar</a> tus calificaciones.<br>
+                Podrás <a href="/Trabajo/identificacion?login=alumno">consultar</a> tus calificaciones.<br>
                 Debes contar con tus datos identificativos para acceder.
             </p>
 
             <h2 class="mt-4" style="color: var(--color-borde);">Si eres profesor@...</h2>
             <p>
-                Podrás <a href="/Trabajo/identificacion">consultar</a> o <a href="">modificar</a> las calificaciones.<br>
+                Podrás <a href="/Trabajo/identificacion?login=profesor">consultar</a> o <a href="">modificar</a> las calificaciones.<br>
                 También necesitarás tus credenciales.
             </p>
 
