@@ -8,4 +8,5 @@
 <link href="/Trabajo/b5css/bootstrap.min.css" rel="stylesheet">
 <base href="http://localhost:8080/Trabajo/">
 <link rel="stylesheet" href="css/rubberhose.css">
+<link rel="stylesheet" href="css/barraSuperior.css">
 

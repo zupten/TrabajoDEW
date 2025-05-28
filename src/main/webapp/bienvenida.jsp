@@ -7,6 +7,7 @@
 </head>
 <body style="background-color: var(--color-fondo); font-family: 'Lexend', sans-serif;">
 
+<%@ include file="/includes/barraSuperior.jsp" %>
     <div class="container mt-5 text-center">
         <div class="bienvenida-caja sombra-retro">
             <h1 style="color: var(--color-borde);">Bienvenid@ a <em>Notas OnLine</em></h1>

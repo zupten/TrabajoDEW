@@ -3,6 +3,8 @@
 <%@ include file="/includes/header.jsp" %>
 <title>Login</title>
 </head>
+<body>
+<%@ include file="/includes/barraSuperior.jsp" %>
 <div class="container mt-5">
   <div class="bienvenida-caja sombra-verde" style="max-width: 500px;">
     <h2 class="mb-4">Iniciar sesión</h2>

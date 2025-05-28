@@ -5,6 +5,7 @@
 <title>Página identificación</title>
 </head>
 <body>
+<%@ include file="/includes/barraSuperior.jsp" %>
 <div class="container mt-5 shadow m-5 p-5">
 	<h2 class="">Bienvenido, ${rol} ${nombre} ${apellidos}</h2><br>
 	<%
