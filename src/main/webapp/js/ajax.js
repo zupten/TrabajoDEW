@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const botones = document.querySelectorAll(".boton-async");
+	const salida = document.getElementById("salida");
 
     botones.forEach(boton => {
         boton.addEventListener("click", function () {
@@ -22,9 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
             xhr.send();
         });
     });
+	
+	function muestrarespuesta(data) {
+		let contenido = "<p>";
+		for (let clave in data) {
+			contenido += data[clave].alumno+ "<br>";
+		}
+		salida.innerHTML = contenido;
+	}
 });
 
-function muestrarespuesta(data) {
-    console.log("Respuesta AJAX:", data);
-    alert("Recibidos " + data.length + " alumnos");
-}

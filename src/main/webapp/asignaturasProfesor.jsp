@@ -23,8 +23,8 @@
         	}
         %>
     </table>
-    <p>
-    </p>
+    <div id="salida">
+    </div>
 </div>
 <script src="/Trabajo/js/ajax.js"></script>
 <%@ include file="/includes/footer.jsp" %>
