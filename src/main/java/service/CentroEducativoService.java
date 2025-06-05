@@ -130,4 +130,45 @@ public class CentroEducativoService {
         
         return responseBody;
     }
+    
+    //setNotaToAsignaturaAlumno
+    public void modificarNota(String dni, String acronimo, double nota) throws IOException, InterruptedException {
+        String url = URL + "/alumnos/" + dni + "/asignaturas/" + acronimo + "?key=" + key;
+
+        HttpClient client = HttpClient.newHttpClient();
+        
+        
+        String notaF = String.format(java.util.Locale.US, "%.2f", nota);//Asegura que el número decimal tenga punto como separador
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .header("Content-Type", "application/json")
+                .header("Cookie", sessionCookie)
+                .PUT(HttpRequest.BodyPublishers.ofString(notaF))
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if (response.statusCode() != 200) {
+            throw new IOException("Error al modificar la nota. Código: " + response.body());
+        }
+    }
+    
+    //GetNotas
+    public AsignaturaNotaAlumno[] getNotasDeAsignatura(String acronimo) throws IOException, InterruptedException {
+        String url = URL + "/asignaturas/" + acronimo + "/alumnos?key=" + key;
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .header("Cookie", sessionCookie)
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        String responseBody = response.body();
+
+        return JsonAObjetoJavaService.parseAsignaturaNotaAlumnoFromJson(responseBody);
+    }
+
+    
+
 }

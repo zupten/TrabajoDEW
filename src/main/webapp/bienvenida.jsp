@@ -32,7 +32,7 @@
 
             <h2 class="mt-4" style="color: var(--color-borde);">Si eres profesor@...</h2>
             <p>
-                Podrás <a href="/Trabajo/identificacion?login=profesor">consultar</a> o <a href="">modificar</a> las calificaciones.<br>
+                Podrás <a href="/Trabajo/identificacion?login=profesor">consultar</a> o <a href="/Trabajo/identificacion?login=profesor">modificar</a> las calificaciones.<br>
                 También necesitarás tus credenciales.
             </p>
 

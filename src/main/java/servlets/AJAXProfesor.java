@@ -11,7 +11,9 @@ import service.CentroEducativoService;
 
 import java.io.IOException;
 
+import clases.Alumno;
 import clases.Asignatura;
+import clases.AsignaturaNotaAlumno;
 
 /**
  * Servlet implementation class AJAXProfesor
@@ -39,8 +41,47 @@ public class AJAXProfesor extends HttpServlet {
                 String acronimo = request.getParameter("acronimo");
             	response.setContentType("application/json");
             	response.setCharacterEncoding("UTF-8");
-            	String json = service.getAlumnosDeAsignatura(acronimo);
-            	response.getWriter().print(json);
+            	//html tabla
+                AsignaturaNotaAlumno[] alumnosNotas = service.getNotasDeAsignatura(acronimo);
+            	Alumno[] todosAlumnos = service.getAlumnos();
+
+            	response.setContentType("text/html;charset=UTF-8");
+            	StringBuilder html = new StringBuilder();
+
+            	html.append("<table class='table table-striped'>");
+            	html.append("<thead><tr><th>DNI</th><th>Nombre completo</th><th>Nota</th><th>Acción</th></tr></thead>");
+            	html.append("<tbody>");
+
+            	for (AsignaturaNotaAlumno reg : alumnosNotas) {
+            	    String dniAlumno = reg.getAlumno();
+            	    String nota = String.valueOf(reg.getNota());
+
+            	    // Buscar nombre y apellidos
+            	    String nombreCompleto = dniAlumno;
+            	    for (Alumno a : todosAlumnos) {
+            	        if (a.getDni().equals(dniAlumno)) {
+            	            nombreCompleto = a.getNombre() + " " + a.getApellidos();
+            	            break;
+            	        }
+            	    }
+
+            	    html.append("<tr>");
+            	    html.append("<td>").append(dniAlumno).append("</td>");
+            	    html.append("<td>").append(nombreCompleto).append("</td>");
+            	    html.append("<td>").append(nota).append("</td>");
+            	    html.append("<td>");
+            	    html.append("<a class='btn btn-sm btn-warning' href='/Trabajo/modificarNota.jsp?dni=")
+            	        .append(dniAlumno)
+            	        .append("&acronimo=")
+            	        .append(acronimo)
+            	        .append("'>Modificar nota</a>");
+            	    html.append("</td>");
+            	    html.append("</tr>");
+            	}
+            	html.append("</tbody></table>");
+
+            	response.getWriter().print(html.toString());
+
             }
             
 		} catch (IOException | InterruptedException e) {

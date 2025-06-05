@@ -44,6 +44,16 @@
     <url-pattern>/profesor/ajax</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  <servlet-name>ModificarNota</servlet-name>
+  <servlet-class>servlets.ModificarNotaServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>ModificarNota</servlet-name>
+  <url-pattern>/profesor/modificarNota</url-pattern>
+</servlet-mapping>
+
+  
   <security-role>
     <role-name>alumno</role-name>
   </security-role>

@@ -1,21 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
     const botones = document.querySelectorAll(".boton-async");
-	const salida = document.getElementById("salida");
+    const salida = document.getElementById("salida");
 
     botones.forEach(boton => {
         boton.addEventListener("click", function () {
             const acronimo = this.textContent.trim();
 
             const xhr = new XMLHttpRequest();
-            xhr.open('GET', `http://localhost:8080/Trabajo/profesor/ajax?action=AlumnosDeAsignatura&acronimo=${encodeURIComponent(acronimo)}`);
+            xhr.open('GET', `/Trabajo/profesor/ajax?action=AlumnosDeAsignatura&acronimo=${encodeURIComponent(acronimo)}`);
 
             xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    try {
-                        const respuesta = JSON.parse(xhr.responseText);
-                        muestrarespuesta(respuesta);
-                    } catch (e) {
-                        console.error("Error al parsear JSON:", e);
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        // ✅ La respuesta ya es HTML, así que se inyecta directamente
+                        salida.innerHTML = xhr.responseText;
+                    } else {
+                        salida.innerHTML = `<p class="text-danger">Error al cargar los alumnos. Código ${xhr.status}</p>`;
                     }
                 }
             };
@@ -23,13 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
             xhr.send();
         });
     });
-	
-	function muestrarespuesta(data) {
-		let contenido = "<p>";
-		for (let clave in data) {
-			contenido += data[clave].alumno+ "<br>";
-		}
-		salida.innerHTML = contenido;
-	}
 });
+
 
