@@ -53,7 +53,7 @@
                     <li>López Izquierdo, Marcos</li>
                     <li>Monzó Sanchis, Toni</li>
                     <li>Navarro Chiner, Hugo</li>
-                    <li>Notario Soto, Alejandro</li>
+                    <li>Notario Soto, Alejandro </li>
                     <li>Teng, Zupan</li>
                 </ol>
             </div>
