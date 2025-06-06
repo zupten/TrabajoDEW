@@ -68,7 +68,7 @@ public class AJAXProfesor extends HttpServlet {
             	    html.append("<tr>");
             	    html.append("<td>").append(dniAlumno).append("</td>");
             	    html.append("<td>").append(nombreCompleto).append("</td>");
-            	    html.append("<td>").append(nota).append("</td>");
+            	    html.append("<td class=\"nota\">").append(nota).append("</td>");
             	    html.append("<td>");
             	    html.append("<a class='btn btn-sm btn-warning' href='/Trabajo/modificarNota.jsp?dni=")
             	        .append(dniAlumno)
@@ -79,6 +79,7 @@ public class AJAXProfesor extends HttpServlet {
             	    html.append("</tr>");
             	}
             	html.append("</tbody></table>");
+                html.append("<button type='button' class='boton-retro' id='boton-media'>Calcular media</button>");
 
             	response.getWriter().print(html.toString());
 
