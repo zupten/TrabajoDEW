@@ -4,7 +4,6 @@
 <title>Login</title>
 </head>
 <body>
-<%@ include file="/includes/barraSuperior.jsp" %>
 <div class="container mt-5">
   <div class="bienvenida-caja sombra-verde" style="max-width: 500px;">
     <h2 class="mb-4">Iniciar sesión</h2>
@@ -26,7 +25,7 @@
     </form>
 
     <p class="text-muted mt-4" style="font-size: 0.9rem;">
-      Si tienes problemas para acceder, consulta con el profesor o revisa tu DNI.
+      Si tienes problemas para acceder, consulta con el administrador del sitio.
     </p>
   </div>
 </div>

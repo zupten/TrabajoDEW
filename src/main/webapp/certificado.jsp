@@ -12,6 +12,13 @@
 %>
 
 <title>Certificado de Notas</title>
+<style>
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+</style>
 </head>
 <body>
 
@@ -71,9 +78,11 @@
             }
         %>
     </ul>
-
-    <div class="text-center">
-        <a href="/Trabajo" class="btn btn-secondary">Volver al inicio</a>
+	<div class="text-center m-3 no-print">
+		<button onclick="window.print()" class="btn btn-success"> Imprimir esta página</button>
+	</div>
+    <div class="text-center no-print">
+        <a href="/Trabajo" class="btn btn-secondary ">Volver al inicio</a>
     </div>
 </div>
 

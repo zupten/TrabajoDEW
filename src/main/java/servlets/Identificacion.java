@@ -40,8 +40,9 @@ public class Identificacion extends HttpServlet {
 			response.sendRedirect("/Trabajo");
 			return;
 		} else if (!request.isUserInRole(login)) {
-			sesion.invalidate();
-			request.setAttribute("mensaje", "no puedes entrar como "+ login);
+			if(!(request.isUserInRole("alumno") || request.isUserInRole("profesor")))
+				sesion.invalidate();
+			request.setAttribute("mensaje", "no tienes permiso de acceso");
 			this.getServletContext().getRequestDispatcher("/errorLogin.jsp").forward(request, response);
 		} 
 		

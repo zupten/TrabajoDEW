@@ -7,7 +7,6 @@
 </head>
 <body style="background-color: var(--color-fondo); font-family: 'Lexend', sans-serif;">
 
-<%@ include file="/includes/barraSuperior.jsp" %>
     <div class="container mt-5 text-center">
         <div class="bienvenida-caja sombra-retro">
             <h1 style="color: var(--color-borde);">Bienvenid@ a <em>Notas OnLine</em></h1>
@@ -32,12 +31,22 @@
 
             <h2 class="mt-4" style="color: var(--color-borde);">Si eres profesor@...</h2>
             <p>
-                Podrás <a href="/Trabajo/identificacion?login=profesor">consultar</a> o <a href="/Trabajo/identificacion?login=profesor">modificar</a> las calificaciones.<br>
+                Podrás <a href="/Trabajo/identificacion?login=profesor">consultar</a> o <a href="/Trabajo/profesor/asignaturas">modificar</a> las calificaciones.<br>
                 También necesitarás tus credenciales.
             </p>
 
             <div class="d-flex justify-content-start gap-3 mt-4">
-                <a href="/Trabajo/alumno/asignaturas" class="boton-retro">Ver asignaturas</a>
+                <%
+                	if(request.isUserInRole("alumno")) {
+                	%>
+                		<a href="/Trabajo/alumno/asignaturas" class="boton-retro">Ver asignaturas</a>
+                	<%
+                	} else if(request.isUserInRole("profesor")) {
+                	%>
+                		<a href="/Trabajo/profesor/asignaturas" class="boton-retro">Ver asignaturas</a>
+                	<%
+                	}
+                %>
                 <%
                 	if(request.getRemoteUser() != null) {
                 %>

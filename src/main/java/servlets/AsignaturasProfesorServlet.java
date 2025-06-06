@@ -27,7 +27,10 @@ public class AsignaturasProfesorServlet extends HttpServlet {
         CentroEducativoService service = (CentroEducativoService) session.getAttribute("service");
 
         String pass = (String) session.getAttribute("pass");
-
+        if (!request.isUserInRole("profesor")) {
+			request.setAttribute("mensaje", "no tienes permiso de acceso");
+			this.getServletContext().getRequestDispatcher("/errorLogin.jsp").forward(request, response);
+		}
         try {
             if (service == null) {
             	service = new CentroEducativoService();

@@ -32,6 +32,9 @@
         <div class="mt-4 text-center">
             <a href="/Trabajo/certificado" class="btn boton-retro">Ver certificado de notas</a>
         </div>
+    <div class="text-center no-print">
+        <a href="/Trabajo" class="btn btn-secondary ">Volver al inicio</a>
+    </div>
     </div>
 </div>
 
