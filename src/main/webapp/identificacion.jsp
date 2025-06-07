@@ -4,22 +4,28 @@
 
 <title>Página identificación</title>
 </head>
-<body>
-<div class="container mt-5 shadow m-5 p-5">
-	<h2 class="">Bienvenido, ${rol} ${nombre} ${apellidos}</h2><br>
-	<%
-		if (request.isUserInRole("alumno")) {
-	%>
-			<p> <a href="/Trabajo/alumno/asignaturas">Lista Asignaturas</a></p>
-	<%
-		} else if (request.isUserInRole("profesor")) {
-	%>
-			<p>Eres profesor</p>
-			<!--<p>Prueba acceder <a href="/Trabajo/alumno/asignaturas">Lista Asignaturas de alumno</a> (lanzará acceso denegado)</p>-->
-			<p> <a href="/Trabajo/profesor/asignaturas">Lista Asignaturas impartiendo</a></p>
-	<%
-		}
-	%>
-	<p> <a href="/Trabajo/identificacion?action=cierra" target="_self">cerrar sesión</a> </p>
+<body style="background-color: var(--color-fondo); font-family: 'Lexend', sans-serif;">
+
+<div class="container mt-5 text-center">
+    <div class="bienvenida-caja sombra-retro p-4">
+        <h2 style="color: var(--color-borde);">Bienvenido/a, ${rol} ${nombre} ${apellidos}</h2>
+        <hr class="linea-verde mb-4">
+
+        <div class="d-grid gap-3">
+            <%
+                if (request.isUserInRole("alumno")) {
+            %>
+                <a href="/Trabajo/alumno/asignaturas" class="boton-retro">Ver asignaturas</a>
+            <%
+                } else if (request.isUserInRole("profesor")) {
+            %>
+                <a href="/Trabajo/profesor/asignaturas" class="boton-retro">Ver asignaturas impartidas</a>
+            <%
+                }
+            %>
+            <a href="/Trabajo/identificacion?action=cierra" class="boton-retro mt-3">Cerrar sesión</a>
+        </div>
+    </div>
 </div>
+
 <%@ include file="/includes/footer.jsp" %>
